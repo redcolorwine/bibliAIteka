@@ -1,0 +1,87 @@
+.footer {
+    background-color: rgb(30, 33, 44);
+    width: 100%;
+    height: 446px;
+    font-family: 'Century Gothic';
+    background: url('./../../media/blackFooter.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.footerBlocks {
+    padding-top: 80px;
+    margin-left: 345px;
+    display: flex;
+    gap: 70px;
+}
+
+.logoBlock {
+    height: 90px;
+    width: 279px;
+    text-align: justify;
+    color: white;
+}
+
+.logoBlock p {
+    margin-top: 25.1px;
+    color: rgb(194, 193, 193);
+}
+
+.imgsBlock {
+    margin-top: 41px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.siteMap h2, .fcourses h2, .contacts h2, .signUp h2 {
+    color: white;
+}
+
+.siteMap, .fcourses, .contacts, .signUp {
+    color: rgb(194, 193, 193);
+}
+
+.siteMap ul, .fcourses ul, .contacts ul, .signUp ul {
+    margin-top: 35.1px;
+}
+
+.siteMap li, .fcourses li, .contacts li, .signUp li {
+    list-style: none;
+    margin-top: 8px;
+}
+
+.signUp {
+    width: 286px;
+}
+
+.signUp input {
+    margin-top: 24px;
+    width: 286px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.signUp p {
+    margin-top: 12px;
+}
+
+.fcourses {}
+
+.contacts {}
+
+.contacts img {
+    margin-right: 12px;
+}
+
+.signUp {}
+
+.backg {
+    height: 58px;
+    width: 1920px;
+    background-color: rgb(41, 44, 55);
+    text-align: center;
+    color: rgb(194, 193, 193);
+    font-family: 'Century Gothic';
+}

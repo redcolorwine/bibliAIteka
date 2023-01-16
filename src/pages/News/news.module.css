@@ -1,0 +1,9 @@
+.news {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: minmax(500px, 1fr);
+    margin: 80px;
+    align-items: center;
+    justify-items: center;
+    gap: 105px;
+}

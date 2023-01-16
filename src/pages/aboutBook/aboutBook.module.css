@@ -1,0 +1,114 @@
+.aboutBook {
+    margin: 50px 0px 50px 50px;
+    width: 100%;
+}
+
+.aboutBlock {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.imgBLock {
+    width: 550px;
+}
+
+.imgBLock img {
+    width: 100%;
+    height: 600px;
+    box-shadow: 0px 0px 20px rgb(100, 98, 98);
+}
+
+.buyBut {
+    background: linear-gradient(to right, rgb(59, 113, 231), rgb(69, 173, 173));
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    font-family: 'Century Gothic';
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+
+.buyBut:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.buyBut:active {
+    transform: translate(-10px, 10px);
+}
+
+.buyBut a {
+    font-family: 'Century Gothic';
+    color: white;
+    text-decoration: none;
+}
+
+.readBut a {
+    font-family: 'Century Gothic';
+    color: white;
+    text-decoration: none;
+}
+
+.readBut {
+    font-family: 'Century Gothic';
+    background: linear-gradient(to right, rgb(235, 162, 80), rgb(224, 100, 17));
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.readBut:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.readBut:active {
+    transform: translate(-10px, 10px);
+}
+
+.buy {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: left;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.buy p>span {
+    color: orangered;
+    font-weight: 900;
+    font-size: 20pt;
+    font-family: 'Century Gothic';
+}
+
+.aboutText {
+    width: 500px;
+    font-family: 'Century Gothic';
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+}
+
+.aboutText h2 {
+    color: orangered;
+}
+
+.aboutText p>span {
+    color: rgb(43, 80, 201);
+    font-weight: 900;
+}
+
+.aboutText .bookInfo>span {
+    color: orangered;
+    font-weight: 900;
+}

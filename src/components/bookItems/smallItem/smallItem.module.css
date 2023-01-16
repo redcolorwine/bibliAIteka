@@ -1,0 +1,30 @@
+.smallItem {
+    margin: 15px 0px 15px 0px;
+    text-align: left;
+    font-family: 'Century Gothic';
+    transition: 0.5s;
+    cursor: pointer;
+    width: 200px;
+    height: 400px;
+
+}
+
+.smallItem img {
+    height: 270px;
+    width: 200px;
+}
+
+.smallItem:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.smallItem p>span {
+    color: rgb(247, 109, 109);
+}
+
+.smallItem h4 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* height: 60px; */
+}
