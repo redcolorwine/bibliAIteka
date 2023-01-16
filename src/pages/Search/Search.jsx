@@ -12,29 +12,41 @@ const Search = (props) => {
     const [totalItems, setTotalItems] = useState(0);
     const [fetching, setFetching] = useState(true);
     const { query } = useParams();
+    const [curQuery, setQuery] = useState(query);
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);
         return function () {
             document.removeEventListener('scroll', scrollHandler);
         }
-    }, [])
-
+    }, [totalItems])
     useEffect(() => {
+        if (query != curQuery) {
+            setQuery(query);
+            setFoundBooks([]);
+            setStartIndex(1);
+            setTotalItems(0);
+            setFetching(true);
+        }
+    }, [query])
+    useEffect(() => {
+
         if (fetching) {
             console.log('fetching');
 
-            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${process.env.REACT_APP_API_KEY}&langRestrict=ru&maxResults=${maxResults}&startIndex=${startIndex}`).then(response => {
+            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${curQuery}&key=${process.env.REACT_APP_API_KEY}&langRestrict=ru&maxResults=${maxResults}&startIndex=${startIndex}`).then(response => {
                 setTotalItems(response.data.totalItems);
                 setFoundBooks([...foundBooks, ...response.data.items]);
                 setStartIndex(prevState => prevState + maxResults);
             }).finally(() => {
-
                 setFetching(false);
             })
         }
     }, [fetching])
 
+
+    console.log(foundBooks.length);
+    console.log(totalItems);
     const scrollHandler = (e) => {
         /* 
         e.target.documentElement.scrollHeight - ОБЩАЯ ВЫОСТА СТРАНИЦЫ С УЧЕТОМ СКРОЛЛА
