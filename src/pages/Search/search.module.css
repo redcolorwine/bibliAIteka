@@ -16,3 +16,13 @@
     justify-items: center;
     gap: 105px;
 }
+
+.jakor {
+    margin: 100px auto 100px auto;
+    text-align: center;
+}
+
+.jakor img {
+    height: 150px;
+    width: 150px;
+}

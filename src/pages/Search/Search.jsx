@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import MediumItem from '../../components/bookItems/mediumItem/MediumItem';
 import rstyle from './search.module.css';
 import { useLocation, useParams } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
+import preloader from './../../media/svg/Spin-1.5s-204px.svg';
 import axios from 'axios';
 
 const Search = (props) => {
@@ -14,12 +16,17 @@ const Search = (props) => {
     const { query } = useParams();
     const [curQuery, setQuery] = useState(query);
 
+    const { ref, inView } = useInView({
+        threshold: 1.0
+    })
+
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);
         return function () {
             document.removeEventListener('scroll', scrollHandler);
         }
-    }, [totalItems])
+    }, [totalItems, inView])
+
     useEffect(() => {
         if (query != curQuery) {
             setQuery(query);
@@ -29,6 +36,7 @@ const Search = (props) => {
             setFetching(true);
         }
     }, [query])
+
     useEffect(() => {
 
         if (fetching) {
@@ -45,15 +53,19 @@ const Search = (props) => {
     }, [fetching])
 
 
-    console.log(foundBooks.length);
-    console.log(totalItems);
+    // console.log(foundBooks.length);
+    // console.log(totalItems);
+    console.log('inViev: ' + inView);
     const scrollHandler = (e) => {
         /* 
         e.target.documentElement.scrollHeight - ОБЩАЯ ВЫОСТА СТРАНИЦЫ С УЧЕТОМ СКРОЛЛА
         e.target.documentElement.scrollTop - ТЕКУЩЕЕ ПОЛОЖЕНИЯ СКРОЛЛА ОТ ТОПА
         window.innerHeight - ВЫСОТА ВИДИМОЙ ОБЛАСТИ СТРАНИЦЫ
         */
-        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && foundBooks.length < totalItems) {
+        // if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && foundBooks.length < totalItems) {
+        //     setFetching(true);
+        // }
+        if (inView && foundBooks.length < totalItems) {
             setFetching(true);
         }
     }
@@ -70,7 +82,9 @@ const Search = (props) => {
                 <div className={rstyle.search}>
 
                     {f1oundBooks}
+                    
                 </div>
+                <div className={rstyle.jakor} ref={ref}><img src={preloader} alt="" /></div>
             </div>
 
         )
